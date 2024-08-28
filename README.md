@@ -22,6 +22,8 @@
 
 **Bash file name:** job_stage1.sh
 
+https://github.com/Samatha1994/Bash_scripts/blob/main/job_stage1.sh
+
 **Bash Command to kick off the job:** sbatch job_stage1.sh
 
 **Bash command to check the status of the job:** 
