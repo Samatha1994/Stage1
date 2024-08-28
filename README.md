@@ -19,7 +19,8 @@ Stage1: Model Training and Data Configuration
 6) negative_images.csv
 7) config_files/neuron_<neuronid>.config
 
-**Bash file name: ** job_stage1.sh
+
+**Bash file name:** job_stage1.sh
 
 **Bash Command to kick off the job:** sbatch job_stage1.sh
 
