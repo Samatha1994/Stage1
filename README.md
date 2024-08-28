@@ -17,7 +17,7 @@ Stage1: Model Training and Data Configuration
 4) preds_of_64Neurons_denseLayer_1370Images_retest2023June.csv
 5) positive_images.csv
 6) negative_images.csv
-7) config_files/neuron_*.config
+7) config_files/neuron_<neuronid>.config
 
 **Bash file name: ** job_stage1.sh
 
