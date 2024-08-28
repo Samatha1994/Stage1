@@ -22,7 +22,7 @@
 
 **Bash file name:** job_stage1.sh
 
-**Bash Script: ** https://github.com/Samatha1994/Bash_scripts/blob/main/job_stage1.sh
+**Bash Script:** https://github.com/Samatha1994/Bash_scripts/blob/main/job_stage1.sh
 
 **Bash Command to kick off the job:** sbatch job_stage1.sh
 
