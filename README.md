@@ -20,7 +20,9 @@ Stage1: Model Training and Data Configuration
 7) config_files/neuron_*.config
 
 **Bash file name: ** job_stage1.sh
+
 **Bash Command to kick off the job:** sbatch job_stage1.sh
+
 **Bash command to check the status of the job:** sacct --format=JobID,JobName,State,ReqMem,MaxRSS,Start,End,TotalCPU,Elapsed,NCPUS,NNodes,NodeList --jobs=**mention your job id here**
 
 
