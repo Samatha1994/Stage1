@@ -30,4 +30,6 @@ sacct --format=JobID,JobName,State,ReqMem,MaxRSS,Start,End,TotalCPU,Elapsed,NCPU
 
 **Log file:** my_job_output_<job_id>.txt (Path: /homes/samatha94/)
 
+**Bash Command to cancel the job:** scancel job_id
+
 
