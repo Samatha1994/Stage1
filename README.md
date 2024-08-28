@@ -28,6 +28,6 @@ Stage1: Model Training and Data Configuration
 
 sacct --format=JobID,JobName,State,ReqMem,MaxRSS,Start,End,TotalCPU,Elapsed,NCPUS,NNodes,NodeList --jobs= <job_id>
 
-**Log file: **	my_job_output_<job_id>.txt (Path: /homes/samatha94/)
+**Log file:** my_job_output_<job_id>.txt (Path: /homes/samatha94/)
 
 
