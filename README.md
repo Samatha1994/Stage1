@@ -26,8 +26,8 @@ Stage1: Model Training and Data Configuration
 
 **Bash command to check the status of the job:** 
 
-sacct --format=JobID,JobName,State,ReqMem,MaxRSS,Start,End,TotalCPU,Elapsed,NCPUS,NNodes,NodeList --jobs=<mention your job id here>
+sacct --format=JobID,JobName,State,ReqMem,MaxRSS,Start,End,TotalCPU,Elapsed,NCPUS,NNodes,NodeList --jobs= <mention_your_job_id_here>
 
-**Log file: **	my_job_output_<job id>.txt (Path: /homes/samatha94/)
+**Log file: **	my_job_output_<job_id>.txt (Path: /homes/samatha94/)
 
 
