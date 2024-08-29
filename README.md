@@ -21,24 +21,36 @@
 
 **Instructions to Set Up the Environment and Run the Python Script:**
 1) Install Python 3.11.5
-    Ensure Python 3.11.5 is installed on your system by executing below command
-    python --version
-2) Set Up a Virtual Environment
-  Install virtualenv if it is not already installed
+
+   Ensure Python 3.11.5 is installed on your system by executing below command
+
+   python --version
+3) Set Up a Virtual Environment
+
+Install virtualenv if it is not already installed
+    
     pip install virtualenv
-3) Create a virtual environment named 'venv'
-    python -m venv venv
-4) Activate the Virtual Environment
-    On macOS/Linux:
-    source venv/bin/activate
-    On Windows:
-    venv\Scripts\activate
-5) Install Required Python Packages:
-    pip install tensorflow Pillow scipy pandas scikit-learn gdown
-6) Run the Python Script
-    python main.py
+5) Create a virtual environment named 'venv'
+
+   python -m venv venv
+7) Activate the Virtual Environment
+
+   On macOS/Linux:
+
+   source venv/bin/activate
+
+   On Windows:
+
+   venv\Scripts\activate
+9) Install Required Python Packages:
+
+   pip install tensorflow Pillow scipy pandas scikit-learn gdown
+10) Run the Python Script
+
+   python main.py
 
 **Steps to Run the Script on BeoCat:**
+
 **Bash file name:** job_stage1.sh
 
 **Bash Script:** https://github.com/Samatha1994/Bash_scripts/blob/main/job_stage1.sh
