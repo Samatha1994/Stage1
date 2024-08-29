@@ -4,13 +4,13 @@
 
 
 **Required Inputs:**
-1) training data                       (Path: /homes/samatha94/ExAI_inputs_and_outputs/Stage1_Inputs/adkdata/training)
-2) validation data                     (Path: /homes/samatha94/ExAI_inputs_and_outputs/Stage1_Inputs/adkdata/validation)
-3) owlfile                             (Path: /homes/samatha94/ExAI_inputs_and_outputs/Stage1_Inputs/owlfile/combined.owl)
-4) set6-initial_score_hybrid.config    (Path: /homes/samatha94/ExAI_inputs_and_outputs/Stage1_Inputs/set6-initial_score_hybrid.config)
+1) training data                       (_Path: /homes/samatha94/ExAI_inputs_and_outputs/Stage1_Inputs/adkdata/training_)
+2) validation data                     (_Path: /homes/samatha94/ExAI_inputs_and_outputs/Stage1_Inputs/adkdata/validation_)
+3) owlfile                             (_Path: /homes/samatha94/ExAI_inputs_and_outputs/Stage1_Inputs/owlfile/combined.owl_)
+4) set6-initial_score_hybrid.config    (_Path: /homes/samatha94/ExAI_inputs_and_outputs/Stage1_Inputs/set6-initial_score_hybrid.config_)
 
 
-**Expected Outputs:**                  (Path: /homes/samatha94/ExAI_inputs_and_outputs/Stage1_Results)
+**Expected Outputs:**                  (_Path: /homes/samatha94/ExAI_inputs_and_outputs/Stage1_Results_)
 1) model_resnet50V2_10classes_retest2023June.h5
 2) finalClass_with_image_name_retest2023June.csv
 3) predictions_of_tenNeurons_dataframe_retest2023June.csv
@@ -66,7 +66,7 @@
 
 sacct --format=JobID,JobName,State,ReqMem,MaxRSS,Start,End,TotalCPU,Elapsed,NCPUS,NNodes,NodeList --jobs= <job_id>
 
-**Log file:** my_job_output_<job_id>.txt (Path: /homes/samatha94/)
+**Log file:** my_job_output_<job_id>.txt (_Path: /homes/samatha94/_)
 
 **Bash Command to cancel the job:** scancel job_id
 
