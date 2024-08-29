@@ -25,14 +25,17 @@
    Ensure Python 3.11.5 is installed on your system by executing below command
 
    python --version
+   
 3) Set Up a Virtual Environment
 
-Install virtualenv if it is not already installed
+   Install virtualenv if it is not already installed
     
     pip install virtualenv
+   
 5) Create a virtual environment named 'venv'
 
    python -m venv venv
+   
 7) Activate the Virtual Environment
 
    On macOS/Linux:
@@ -42,10 +45,12 @@ Install virtualenv if it is not already installed
    On Windows:
 
    venv\Scripts\activate
+   
 9) Install Required Python Packages:
 
    pip install tensorflow Pillow scipy pandas scikit-learn gdown
-10) Run the Python Script
+   
+11) Run the Python Script
 
    python main.py
 
