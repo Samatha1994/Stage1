@@ -52,7 +52,7 @@
    
 11) Run the Python Script
 
-   python main.py
+      python main.py
 
 **Steps to Run the Script on BeoCat:**
 
