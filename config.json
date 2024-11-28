@@ -1,7 +1,7 @@
 {
     
     "train_directory": "/homes/samatha94/ExAI_inputs_and_outputs/Stage1_Inputs/adkdata/training",
-    "validation_directory": "/homes/samatha94/ExAI_inputs_and_outputs/Stage1_Inputs/adkdata/validation",      
+    "validation_directory": "/homes/samatha94/ExAI_inputs_and_outputs/Stage1_Inputs/adkdata/m1_validation_perturbed/validation/",      
     "batch_size": 32,
     "image_size": [224, 224],
     "epochs": 30
