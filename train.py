@@ -69,6 +69,9 @@ def predict_with_model(model, test_dataset, output_dir):
 
 def evaluate_model(test_dataset, pred_labels):
     print("[INFO] evaluating network...")
+    class_labels = test_dataset.class_indices.keys()
+    sorted_labels = sorted(class_labels, key=lambda x: test_dataset.class_indices[x])
+    print("[INFO] evaluating network2...")
     print(classification_report(test_dataset.classes, pred_labels, target_names=test_dataset.class_indices.keys()))
 
 def predict_with_feature_map_model(feature_map_model, test_dataset, output_dir):
