@@ -69,8 +69,10 @@ def predict_with_model(model, test_dataset, output_dir):
 
 def evaluate_model(test_dataset, pred_labels):
     print("[INFO] evaluating network...")
-    class_labels = test_dataset.class_indices.keys()
-    sorted_labels = sorted(class_labels, key=lambda x: test_dataset.class_indices[x])
+    # Filter target names to only those present in pred_labels
+    unique_labels = np.unique(test_dataset.classes)
+    target_names = [name for idx, name in sorted(test_dataset.class_indices.items()) if idx in unique_labels]
+    
     print("[INFO] evaluating network2...")
     print(classification_report(test_dataset.classes, pred_labels, target_names=test_dataset.class_indices.keys()))
 
