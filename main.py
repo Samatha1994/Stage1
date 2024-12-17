@@ -29,7 +29,7 @@ print("Count of unique classes in test dataset:", len(unique_classes_in_test))
 model = md.create_model(train_dataset.num_classes)
 # -----------------------------------------------------------------------------------------
 #UNCOMMENT later:  commenting below to avoid repeating to compile and train again
-#history = tr.compile_and_train(model, train_dataset, validation_dataset, config['epochs'])
+history = tr.compile_and_train(model, train_dataset, validation_dataset, config['epochs'])
 # ------------------------------------------------------------------------------------------
 # Directory where you want to save outputs
 output_dir = "/homes/samatha94/ExAI_inputs_and_outputs/Stage1_Results/"
@@ -43,7 +43,7 @@ if not os.path.exists(output_dir):
 model_save_path = os.path.join(output_dir, model_filename)
 # ---------------------------------------------------------------------------------------------
 #UNCOMMENT later: Reusing exiting .h5 file..commenting below to avoid repeating to save the .h5 file.
-#model.save(model_save_path)
+model.save(model_save_path)
 # -----------------------------------------------------------------------------------------------
 model, layer_outputs, layer_names, feature_map_model = md.load_and_analyze_model(model_save_path)
 
