@@ -38,7 +38,7 @@ def compile_and_train(model, train_dataset, validation_dataset, epochs):
     return history
 
 def predict_with_model(model, test_dataset, output_dir):
-    predIdxs = model.predict_generator(test_dataset, steps=(test_dataset.samples // test_dataset.batch_size) + 1)
+    predIdxs = model.predict(test_dataset, steps=(test_dataset.samples // test_dataset.batch_size) + 1)
     print(predIdxs.shape)
     print(predIdxs)
     classes = list(np.argmax(predIdxs, axis=1))
