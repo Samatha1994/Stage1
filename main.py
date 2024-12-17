@@ -15,12 +15,17 @@ import os
 import analyze_activations as aa
 import config_generator as cg
 import download_from_gdrive as dgdrive
+import numpy as np
 
 
 config_path = 'config.json'
 config = dp.load_config(config_path)
 
 train_dataset, test_dataset, validation_dataset = dp.create_data_generators(config)
+unique_classes_in_test = np.unique(test_dataset.classes)
+print("Unique classes in test dataset:", unique_classes_in_test)
+print("Count of unique classes in test dataset:", len(unique_classes_in_test))
+
 model = md.create_model(train_dataset.num_classes)
 # -----------------------------------------------------------------------------------------
 #UNCOMMENT later:  commenting below to avoid repeating to compile and train again
