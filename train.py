@@ -57,6 +57,11 @@ def predict_with_model(model, test_dataset, output_dir):
 
     pred_labels = np.argmax(predIdxs, axis=1)
 
+    # Debugging code to check unique predicted classes
+    unique_pred_classes = np.unique(pred_labels)
+    print("Unique predicted classes:", unique_pred_classes)
+    print("Count of unique predicted classes:", len(unique_pred_classes))
+
     # Saving class mappings
     b = [(x[0], y) for x in zip(classes, filenames) for y in x[1:]]
     df_labels = pd.DataFrame(b, columns=['Predicted_classes', 'image_name'])
@@ -70,8 +75,16 @@ def predict_with_model(model, test_dataset, output_dir):
 def evaluate_model(test_dataset, pred_labels):
     print("[INFO] evaluating network...")
     # Filter target names to only those present in pred_labels
+    
+
+    # Debugging code to ensure correct labels for classification_report
     unique_labels = np.unique(test_dataset.classes)
+    print("Evaluating with these unique labels from test data:", unique_labels)
+    print("Total unique labels used:", len(unique_labels))
+
+    # Ensure target names are only for present classes
     target_names = [name for idx, name in sorted(test_dataset.class_indices.items()) if idx in unique_labels]
+
     
     print("[INFO] evaluating network2...")
     print(classification_report(test_dataset.classes, pred_labels, target_names=test_dataset.class_indices.keys()))
