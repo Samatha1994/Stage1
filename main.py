@@ -52,8 +52,10 @@ output_dir = "/homes/samatha94/ExAI_inputs_and_outputs/Stage1_Results/"
 # tr.evaluate_model(test_dataset, pred_labels)
 # predIdxs= tr.predict_with_feature_map_model(feature_map_model, test_dataset, output_dir)
 
-
+#original
 # csv_file_path = "/homes/samatha94/ExAI_inputs_and_outputs/Stage1_Results/preds_of_64Neurons_denseLayer_1370Images_retest2023June.csv"
+
+#new
 csv_file_path = "/homes/samatha94/ExAI_inputs_and_outputs/Stage1_Results/preds_of_64Neurons_denseLayer_training.csv"
 # Analyze activations and save results
 aa.analyze_activations(csv_file_path, output_dir)
@@ -68,7 +70,11 @@ if not os.path.exists(output_dir):
 positive_csv_path = "/homes/samatha94/ExAI_inputs_and_outputs/Stage1_Results/positive_images.csv"
 negative_csv_path = "/homes/samatha94/ExAI_inputs_and_outputs/Stage1_Results/negative_images.csv"
 template_config_path = "/homes/samatha94/ExAI_inputs_and_outputs/Stage1_Inputs/set6-initial_score_hybrid.config"
-base_url = "http://www.daselab.org/ontologies/ADE20K/hcbdwsu#"
+#original
+# base_url = "http://www.daselab.org/ontologies/ADE20K/hcbdwsu#"
+
+#new
+base_url ="http://www.daselab.org/ontologies/SUN2012/hcbdwsu#"
 
 
 # Generate config files and get the count of non-empty config files created
