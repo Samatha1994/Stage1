@@ -16,26 +16,75 @@ def load_config(config_path):
     return config
 
 def create_data_generators(config):
+    # --------------------------------------------------------------------------------------------------------------------------
+    # Original code
+    # --------------------------------------------------------------------------------------------------------------------------
+    # image_generator = tf.keras.preprocessing.image.ImageDataGenerator(
+    #     rescale=1./255,
+    #     shear_range=0.2,
+    #     zoom_range=0.2,
+    #     horizontal_flip=True,
+    #     validation_split=0.2
+    # )
+    
+    # image_generator_validation = tf.keras.preprocessing.image.ImageDataGenerator(
+    #     rescale=1./255,
+    #     shear_range=0.2,
+    #     zoom_range=0.2,
+    #     horizontal_flip=True
+    # )
+
+    # train_dataset = image_generator.flow_from_directory(
+    #     batch_size=config["batch_size"],
+    #     directory=config["train_directory"],
+    #     shuffle=True,
+    #     target_size=tuple(config["image_size"]),
+    #     subset="training",
+    #     class_mode='categorical'
+    # )
+
+    # test_dataset = image_generator.flow_from_directory(
+    #     batch_size=config["batch_size"],
+    #     directory=config["train_directory"],
+    #     shuffle=False,
+    #     target_size=tuple(config["image_size"]),
+    #     subset="validation",
+    #     class_mode='categorical'
+    # )
+
+    # validation_dataset = image_generator_validation.flow_from_directory(
+    #     batch_size=config["batch_size"],
+    #     directory=config["validation_directory"],
+    #     shuffle=False,
+    #     target_size=tuple(config["image_size"]),
+    #     class_mode='categorical'
+    # )
+    # --------------------------------------------------------------------------------------------------------------------------
+
+    # --------------------------------------------------------------------------------------------------------------------------
+    # Changes for Moumita
+    # --------------------------------------------------------------------------------------------------------------------------
     image_generator = tf.keras.preprocessing.image.ImageDataGenerator(
         rescale=1./255,
         shear_range=0.2,
         zoom_range=0.2,
         horizontal_flip=True,
-        validation_split=0.2
+        validation_split=0.1 #difference
     )
     
     image_generator_validation = tf.keras.preprocessing.image.ImageDataGenerator(
-        rescale=1./255,
-        shear_range=0.2,
-        zoom_range=0.2,
-        horizontal_flip=True
+        rescale=1./255
+        # shear_range=0.2, #difference
+        # zoom_range=0.2, #difference
+        # horizontal_flip=True #difference
     )
 
     train_dataset = image_generator.flow_from_directory(
         batch_size=config["batch_size"],
         directory=config["train_directory"],
         shuffle=True,
-        target_size=tuple(config["image_size"]),
+        seed=42, #difference
+        target_size=(299, 299), #difference
         subset="training",
         class_mode='categorical'
     )
@@ -44,7 +93,8 @@ def create_data_generators(config):
         batch_size=config["batch_size"],
         directory=config["train_directory"],
         shuffle=False,
-        target_size=tuple(config["image_size"]),
+         seed=42, #difference
+        target_size=(299, 299), #difference
         subset="validation",
         class_mode='categorical'
     )
@@ -53,8 +103,9 @@ def create_data_generators(config):
         batch_size=config["batch_size"],
         directory=config["validation_directory"],
         shuffle=False,
-        target_size=tuple(config["image_size"]),
+        target_size=(299, 299), #difference
         class_mode='categorical'
     )
+    # --------------------------------------------------------------------------------------------------------------------------
 
     return train_dataset, test_dataset, validation_dataset
