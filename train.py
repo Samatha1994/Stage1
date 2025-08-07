@@ -20,21 +20,50 @@ def compile_and_train(model, train_dataset, validation_dataset, epochs):
     # adam = Adam(learning_rate=0.001, decay=0.001/30) --as this was giving some error
     # ValueError: decay is deprecated in the new Keras optimizer, please check the docstring for valid arguments, 
     # or use the legacy optimizer, e.g., tf.keras.optimizers.legacy.Adam.
-    adam = legacy.Adam(learning_rate=0.001, decay=0.001/30)
-    model.compile(optimizer=adam, loss='categorical_crossentropy', metrics=['accuracy'])
+    #------------------------------------------------------------------------
+    #original code
+    #------------------------------------------------------------------------
+    # adam = legacy.Adam(learning_rate=0.001, decay=0.001/30)
+    # model.compile(optimizer=adam, loss='categorical_crossentropy', metrics=['accuracy'])
 
+    # early_stopping = EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True)
+    
+    # print("[INFO] training model...")
+    # history = model.fit(
+    #     train_dataset,
+    #     steps_per_epoch=train_dataset.samples // train_dataset.batch_size,
+    #     validation_data=validation_dataset,
+    #     validation_steps=validation_dataset.samples // validation_dataset.batch_size,
+    #     epochs=epochs,
+    #     callbacks=[early_stopping]
+    # )
+    #------------------------------------------------------------------------
+    #------------------------------------------------------------------------
+    #changes for Moumita
+    #------------------------------------------------------------------------
+
+    # compile the model
+    
+    # Define early stopping criteria
     early_stopping = EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True)
     
+    #adam = Adam(learning_rate=1e-4, decay=1e-4/20)
+    adam = Adam(learning_rate=0.001)
+    model.compile(optimizer= adam,loss='categorical_crossentropy', metrics=['accuracy'])
+
+    # train the model
     print("[INFO] training model...")
+    
     history = model.fit(
         train_dataset,
-        steps_per_epoch=train_dataset.samples // train_dataset.batch_size,
-        validation_data=validation_dataset,
-        validation_steps=validation_dataset.samples // validation_dataset.batch_size,
-        epochs=epochs,
+        steps_per_epoch = train_dataset.samples // 32,
+        validation_data = validation_dataset,
+        validation_steps = validation_dataset.samples  // 32,
+        epochs = 30,
+        verbose=1,
         callbacks=[early_stopping]
     )
-
+    #------------------------------------------------------------------------
     return history
 
 def predict_with_model(model, test_dataset, output_dir):
