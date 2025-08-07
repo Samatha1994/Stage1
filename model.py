@@ -14,20 +14,49 @@ from tensorflow.keras.models import Model, load_model
 
 def create_model(num_classes):
     print("[INFO] preparing model...")
-    base_model = ResNet50V2(weights="imagenet", include_top=False, input_tensor=Input(shape=(224, 224, 3)))
-    print(len(base_model.layers))
+    #-----------------------------------------------------------------------------------------------------------
+    #original code
+    #-----------------------------------------------------------------------------------------------------------
+    # base_model = ResNet50V2(weights="imagenet", include_top=False, input_tensor=Input(shape=(224, 224, 3)))
+    # print(len(base_model.layers))
     
 
-    head_model = base_model.output
-    head_model = AveragePooling2D(pool_size=(7, 7))(head_model)
-    head_model = Flatten(name="flatten")(head_model)
-    head_model = Dense(64, activation="relu")(head_model)
-    head_model = Dropout(0.5)(head_model)
-    head_model = Dense(num_classes, activation="softmax")(head_model)
+    # head_model = base_model.output
+    # head_model = AveragePooling2D(pool_size=(7, 7))(head_model)
+    # head_model = Flatten(name="flatten")(head_model)
+    # head_model = Dense(64, activation="relu")(head_model)
+    # head_model = Dropout(0.5)(head_model)
+    # head_model = Dense(num_classes, activation="softmax")(head_model)
 
-    model = Model(inputs=base_model.input, outputs=head_model)
-    for layer in base_model.layers:
+    # model = Model(inputs=base_model.input, outputs=head_model)
+    # for layer in base_model.layers:
+    #     layer.trainable = False
+    #-----------------------------------------------------------------------------------------------------------
+    
+    #-----------------------------------------------------------------------------------------------------------
+    #Changes for Moumita
+    #-----------------------------------------------------------------------------------------------------------
+    print("[INFO] preparing model...")
+    baseModel = InceptionV3(weights="imagenet", include_top=False,
+    	input_tensor=Input(shape=(299, 299, 3))) 
+    
+    
+    for layer in baseModel.layers[:]:
         layer.trainable = False
+
+
+    headModel = baseModel.output
+    headModel = BatchNormalization()(headModel)
+    headModel = AveragePooling2D(pool_size=(7, 7))(headModel)
+    headModel = Flatten(name="flatten")(headModel)
+    headModel = Dense(64, activation="relu")(headModel)
+    headModel = Dropout(0.5)(headModel)
+    headModel = Dense(train_dataset.num_classes, activation="softmax")(headModel)
+
+
+    model = Model(inputs=baseModel.input, outputs=headModel)
+
+    #-----------------------------------------------------------------------------------------------------------
     return model
 
 
